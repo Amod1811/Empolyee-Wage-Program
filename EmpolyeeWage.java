@@ -1,7 +1,7 @@
 package bl.com.employeewageprogram;
 /*
  * Author- Amod
- * Calculate Part time Employee Wage for month
+ * Calculate Wages till a condition of total working hours or days is reached for a month 
  */
 public class EmpolyeeWage {
 	
