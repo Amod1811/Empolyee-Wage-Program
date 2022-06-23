@@ -1,22 +1,23 @@
 package bl.com.employeewageprogram;
 /*
  * Author- Amod
- * Calculate Part time Employee Wage using Switch case
+ * Calculate Part time Employee Wage for month
  */
 public class EmpolyeeWage {
 	
 	public static final int IS_PART_TIME = 1;
 	public static  final int IS_FULL_TIME = 2;
 	public static final int  EMP_RATE_PER_HOUR = 20;
+	public static final int NUM_OF_WORKING_DAYS =2;
 	public static void main(String[] args) {
 		//variables
 		
-		int  empHrs=8;
-		int Wsa =0;
-		
-		int empWage = 20;
+		int  empHrs=0;
+		int TotalEmpWage = 0;
+		int empWage = 0;
 		
 		//use random method check employee is present or not
+		for (int day = 0;day < NUM_OF_WORKING_DAYS; day++) {
 		double empCheck = Math.floor(Math.random()* 10)%3;
 		if (empCheck == IS_FULL_TIME)
 			System.out.println("Employee is present");
@@ -34,9 +35,12 @@ public class EmpolyeeWage {
 		 default :
 			 empHrs = 0;
 		}
-			empHrs = 0;
+			
 		empWage = empHrs * EMP_RATE_PER_HOUR;
+		TotalEmpWage += empWage;
 		System.out.println("Emp Wage : " + empWage);
+		}
+		System.out.println("Total Emp Wage :" + TotalEmpWage);
 	}
 
 }
