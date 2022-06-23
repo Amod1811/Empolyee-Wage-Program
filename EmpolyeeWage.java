@@ -1,17 +1,19 @@
 package bl.com.employeewageprogram;
 /*
  * Author- Amod
- * Part time Employee&Wage Calculate
+ * Calculate Part time Employee Wage using Switch case
  */
 public class EmpolyeeWage {
-
+	
+	public static final int IS_PART_TIME = 1;
+	public static  final int IS_FULL_TIME = 2;
+	public static final int  EMP_RATE_PER_HOUR = 20;
 	public static void main(String[] args) {
 		//variables
-		int IS_FULL_TIME =1;
-		int IS_PART_TIME = 2;
+		
 		int  empHrs=8;
 		int Wsa =0;
-		int EMP_RATE_PER_HOUR = 20;
+		
 		int empWage = 20;
 		
 		//use random method check employee is present or not
@@ -22,23 +24,19 @@ public class EmpolyeeWage {
 			System.out.println("Employee is not Absent");
 		
 		//calculate employee wage 
-		if (empCheck == IS_FULL_TIME)
+		switch((int)empCheck) {
+		case  IS_FULL_TIME :
 			empHrs = 12;
-		else if (empCheck == IS_PART_TIME)
-			empHrs = 8;
-		else
+		break;
+		case IS_PART_TIME :
+				empHrs = 8;
+		break;
+		 default :
+			 empHrs = 0;
+		}
 			empHrs = 0;
 		empWage = empHrs * EMP_RATE_PER_HOUR;
 		System.out.println("Emp Wage : " + empWage);
-				
-				
-				
-				
-				
-				
-				
-				
-
 	}
 
 }
