@@ -1,51 +1,49 @@
 package bl.com.employeewageprogram;
 /*
  * Author- Amod
- * Calculate Wages till a condition of total working hours or days is reached for a month 
+ * Calculate Employee Wage to use class method 
  */
 public class EmpolyeeWage {
-	
-	public static final int IS_PART_TIME = 1;
-	public static  final int IS_FULL_TIME = 2;
-	public static final int  EMP_RATE_PER_HOUR = 20;
-	public static final int NUM_OF_WORKING_DAYS =2;
-	public static final int MAX_HRS_IN_MONTH = 10;
-	public static void main(String[] args) {
-		//variables
-		
-		int  empHrs=0;
-		int TotalEmpWage = 0;
-		int empWage = 0;
-		int totalWorkingDays = 0;
-		int totalEmpHrs= 0;
-		
-		//use random method check employee is present or not
-		while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS ) {
-			totalWorkingDays++;
-		int  empCheck = (int)Math.floor(Math.random()* 10)%3;
-		if (empCheck == IS_FULL_TIME)
-			System.out.println("Employee is present");
-		else
-			System.out.println("Employee is not Absent");
-		
-		//calculate employee wage 
-		switch((int)empCheck) {
-		case  IS_FULL_TIME :
-			empHrs = 12;
-		break;
-		case IS_PART_TIME :
-				empHrs = 8;
-		break;
-		 default :
-			 empHrs = 0;
-		}
-		totalEmpHrs += empHrs;
-		System.out.println("Day#: " + totalWorkingDays + "emp Hr" + empHrs);
-		empWage = empHrs * EMP_RATE_PER_HOUR;
-		TotalEmpWage += empWage;
-		System.out.println("Emp Wage : " + empWage);
-		}
-		System.out.println("Total Emp Wage :" + TotalEmpWage);
+	private static int PART_TIME_PRESENT =2;
+	private static int PART_TIME_WORK_HR =4;
+	private static int FULL_TIME_PRESENT =1;
+	private static int FULL_TIME_WORK_HR =8;
+	private static int SALARY_PER_HR =25;
+	 
+    
+    	 
+       
+    	   public static void getAttendance() {
+    			int checkStatus = (int) (Math.floor(Math.random() * 10) %  2);
+    			if(checkStatus == 0)
+    				System.out.println("emp is absent");
+    			else
+    				System.out.println("emp is present");
+    			}
+                   public static void getPartTime() {
+                	int workHr;
+    				int dailyWage;
+    				double emp = Math.floor(Math.random() * 10) %  3;
+    				if (emp == 	FULL_TIME_PRESENT) {
+    				System.out.println("Employee is present");
+    				workHr = FULL_TIME_WORK_HR;
+    				}
+    				else if (emp == PART_TIME_PRESENT) {
+    					System.out.println("Employee is part timer");
+    					workHr = PART_TIME_WORK_HR;
+    				}
+    				else{
+    				System.out.println("Employee is absent");
+    				workHr = 0;
+    				}
+    				
+    				dailyWage= (SALARY_PER_HR * workHr);
+    				System.out.println("salary will be" + dailyWage);
+    				}
+    		     public static void main(String args[]) {
+    		    	 getAttendance();
+    		    	 getPartTime();
+    		     }
 	}
 
-}
+
